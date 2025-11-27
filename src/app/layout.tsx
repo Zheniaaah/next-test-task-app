@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import React from 'react';
 
+import { SideBar } from '@/components';
+
 const poppins = Poppins({
   variable: '--font-poppins',
   weight: ['400', '500', '600', '700'],
@@ -23,6 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} flex h-screen overflow-hidden antialiased`}>
+        <SideBar />
+
         <main>{children}</main>
       </body>
     </html>
