@@ -5,6 +5,7 @@ import { Poppins } from 'next/font/google';
 import React from 'react';
 
 import { SideBar } from '@/components';
+import { Providers } from '@/providers';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -25,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} flex h-screen overflow-hidden font-sans antialiased`}>
-        <SideBar />
+        <Providers>
+          <SideBar />
 
-        <main className="px-8 py-10">{children}</main>
+          <main className="px-8 py-10">{children}</main>
+        </Providers>
       </body>
     </html>
   );
