@@ -1,5 +1,11 @@
 import React from 'react';
 
+import { PageTitle } from '@/components';
+
 export default function SettingsPage() {
-  return <div>settings</div>;
+  return (
+    <>
+      <PageTitle title="Settings" />
+    </>
+  );
 }

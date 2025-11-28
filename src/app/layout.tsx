@@ -24,10 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} flex h-screen overflow-hidden antialiased`}>
+      <body className={`${poppins.variable} flex h-screen overflow-hidden font-sans antialiased`}>
         <SideBar />
 
-        <main>{children}</main>
+        <main className="px-8 py-10">{children}</main>
       </body>
     </html>
   );
