@@ -1,18 +1,24 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { AvatarProgress, Button } from '@/components';
+import { useGetTasks } from '@/hooks';
+import { getCompletedPercentage } from '@/utils';
 
 export default function ProfileSidebar() {
+  const { data: tasks } = useGetTasks();
+
+  const percentage = useMemo(() => getCompletedPercentage(tasks), [tasks]);
+
   return (
     <aside className="flex h-full w-[312px] flex-col items-center bg-white px-6 py-6.5">
       <h2 className="mt-3.5 self-start text-xl font-medium">My Profile</h2>
 
-      <p className="mt-1 self-start text-sm text-[#64C882]">75% completed your profile</p>
+      <p className="mt-1 self-start text-sm text-[#64C882]">{percentage}% completed your profile</p>
 
       <AvatarProgress
-        value={75}
+        value={percentage}
         size={100}
         strokeWidth={3}
         progressColor="#64C882"
