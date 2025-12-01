@@ -17,7 +17,7 @@ export default function TaskCard({ task }: IProps) {
         <button className="cursor-pointer text-[#AAAAAA]">•••</button>
       </div>
 
-      <p className="mt-5.5 text-sm text-wrap text-[#12121299]">{task.description}</p>
+      <p className="mt-5.5 truncate text-sm text-wrap text-[#12121299]">{task.description}</p>
 
       <div className="mt-auto flex items-center justify-between">
         <div

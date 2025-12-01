@@ -1,11 +1,15 @@
 import React from 'react';
 
-import { PageTitle } from '@/components';
+import { PageTitle, ProfileSidebar } from '@/components';
 
 export default function SettingsPage() {
   return (
-    <>
-      <PageTitle title="Settings" />
-    </>
+    <div className="flex h-full justify-between">
+      <section className="px-8 py-10">
+        <PageTitle title="Settings" />
+      </section>
+
+      <ProfileSidebar />
+    </div>
   );
 }

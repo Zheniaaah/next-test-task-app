@@ -15,7 +15,7 @@ export default function TaskList() {
   }
 
   return (
-    <div className="mt-7 grid max-w-6xl grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-7 grid max-w-6xl grid-cols-[repeat(auto-fill,minmax(264px,1fr))] items-start gap-8">
       {CATEGORIES.map((category) => {
         let content;
         const tasksColumn = getFilteredTasks(tasks, category.id);
