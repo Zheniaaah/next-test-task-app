@@ -5,7 +5,7 @@ import React from 'react';
 import { EmptyCard, TaskCard } from '@/components';
 import { useGetTasks } from '@/hooks';
 import { CATEGORIES } from '@/shared/data';
-import { getTasksByStatus } from '@/utils';
+import { getFilteredTasks } from '@/utils';
 
 export default function TaskList() {
   const { data: tasks, isLoading, isError } = useGetTasks();
@@ -18,7 +18,7 @@ export default function TaskList() {
     <div className="mt-7 grid max-w-6xl grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-4">
       {CATEGORIES.map((category) => {
         let content;
-        const tasksColumn = tasks && !isLoading ? getTasksByStatus(tasks, category.id) : [];
+        const tasksColumn = getFilteredTasks(tasks, category.id);
 
         if (isLoading) {
           content = Array.from({ length: 3 }).map((_, i) => (

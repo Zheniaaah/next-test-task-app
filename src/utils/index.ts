@@ -1,3 +1,3 @@
 export * from './class-names';
 export * from './format-date';
-export * from './get-tasks-by-status';
+export * from './get-filtered-tasks';
