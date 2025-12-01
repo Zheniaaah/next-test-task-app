@@ -1,5 +1,5 @@
 import type { SVGProps } from 'react';
 
-export interface ISVGPropsInterface extends SVGProps<SVGSVGElement> {
+export interface ISVGProps extends SVGProps<SVGSVGElement> {
   size?: number;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import type { ISVGPropsInterface } from '@/types';
+import type { ISVGProps } from '@/types';
 import { cn } from '@/utils';
 
-export default function SettingsIcon({ className, size = 20, ...props }: ISVGPropsInterface) {
+export default function SettingsIcon({ className, size = 20, ...props }: ISVGProps) {
   return (
     <svg
       className={cn(className)}
