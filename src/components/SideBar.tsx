@@ -13,7 +13,7 @@ export default function SideBar() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex w-[220px] flex-col gap-10 bg-white px-7 py-9">
+    <aside className="hidden w-[220px] shrink-0 flex-col gap-10 bg-white px-7 py-9 md:flex">
       <div className="mt-5 flex items-center gap-3">
         <div className="flex size-8 items-center justify-center rounded-full bg-[#FF9F24] text-white">
           <span className="text-lg font-medium">C</span>

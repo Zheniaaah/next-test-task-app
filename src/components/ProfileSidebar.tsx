@@ -14,7 +14,7 @@ export default function ProfileSidebar() {
   const percentage = useMemo(() => getCompletedPercentage(tasks), [tasks]);
 
   return (
-    <aside className="flex h-full w-[312px] flex-col items-center bg-white px-6 py-6.5">
+    <aside className="hidden h-full w-[312px] flex-col items-center bg-white px-6 py-6.5 md:flex">
       <h2 className="mt-3.5 self-start text-xl font-medium">My Profile</h2>
 
       <p className="mt-1 self-start text-sm text-[#64C882]">{percentage}% completed your profile</p>
