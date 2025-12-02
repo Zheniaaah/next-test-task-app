@@ -29,7 +29,7 @@ export default function RootLayout({
         <Providers>
           <SideBar />
 
-          <main className="w-full">{children}</main>
+          <main className="flex-1">{children}</main>
         </Providers>
       </body>
     </html>
