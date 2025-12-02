@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { EmptyCard, TaskCard } from '@/components';
 import { useGetTasks } from '@/hooks';
@@ -9,6 +9,18 @@ import { getFilteredTasks } from '@/utils';
 
 export default function TaskList() {
   const { data: tasks, isLoading, isError } = useGetTasks();
+
+  const maxItemsLength = useMemo(() => {
+    if (!tasks || isLoading) return 3;
+
+    const lengths = CATEGORIES.map((category) => {
+      const categoryTasks = getFilteredTasks(tasks, category.id);
+
+      return categoryTasks.length;
+    });
+
+    return Math.max(3, ...lengths);
+  }, [tasks, isLoading]);
 
   if (isError) {
     return <div className="p-8 text-red-500">Ошибка при загрузке данных. Проверьте API.</div>;
@@ -21,11 +33,11 @@ export default function TaskList() {
         const tasksColumn = getFilteredTasks(tasks, category.id);
 
         if (isLoading) {
-          content = Array.from({ length: 3 }).map((_, i) => (
+          content = Array.from({ length: maxItemsLength }).map((_, i) => (
             <EmptyCard key={`empty-${category.id}-${i}`} animate />
           ));
         } else {
-          const emptySlotsCount = Math.max(0, 3 - tasksColumn.length);
+          const emptySlotsCount = Math.max(0, maxItemsLength - tasksColumn.length);
 
           content = (
             <>
