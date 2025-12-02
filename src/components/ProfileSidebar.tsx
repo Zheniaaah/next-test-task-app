@@ -4,9 +4,11 @@ import React, { useMemo } from 'react';
 
 import { AvatarProgress, Button } from '@/components';
 import { useGetTasks } from '@/hooks';
+import { useUserContext } from '@/providers';
 import { getCompletedPercentage } from '@/utils';
 
 export default function ProfileSidebar() {
+  const { shortUsername } = useUserContext();
   const { data: tasks } = useGetTasks();
 
   const percentage = useMemo(() => getCompletedPercentage(tasks), [tasks]);
@@ -27,7 +29,7 @@ export default function ProfileSidebar() {
         <div className="h-20 w-20 rounded-full bg-[#C4C4C4]" />
       </AvatarProgress>
 
-      <h3 className="mt-4 text-base font-medium">User R.</h3>
+      <h3 className="mt-4 text-base font-medium">{shortUsername}</h3>
 
       <p className="mt-2.5 text-sm text-[#AAAAAA]">Developer at White Digital</p>
 

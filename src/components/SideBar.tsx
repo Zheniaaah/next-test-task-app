@@ -4,10 +4,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
+import { useUserContext } from '@/providers';
 import { NAV_ITEMS } from '@/shared/data';
 import { cn } from '@/utils';
 
 export default function SideBar() {
+  const { shortUsername } = useUserContext();
   const pathname = usePathname();
 
   return (
@@ -40,7 +42,7 @@ export default function SideBar() {
       <footer className="mt-auto flex gap-3">
         <div className="size-8 rounded-full bg-[#C4C4C4]" />
         <div className="flex flex-col justify-between">
-          <span className="text-xs text-black">User R.</span>
+          <span className="text-xs text-black">{shortUsername}</span>
           <span className="text-[10px] text-[#AAAAAA]">test-mail@email.com</span>
         </div>
       </footer>

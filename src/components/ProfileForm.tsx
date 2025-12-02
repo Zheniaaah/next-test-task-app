@@ -17,6 +17,7 @@ import {
   FormMessage,
   Input,
 } from '@/components';
+import { useUserContext } from '@/providers';
 
 const notoSans = Noto_Sans({
   subsets: ['latin', 'cyrillic'],
@@ -35,17 +36,22 @@ const formSchema = z.object({
 });
 
 export default function ProfileForm() {
+  const { username, setUsername } = useUserContext();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
+      username: username,
       password: '',
     },
   });
 
-  const onSubmit = useCallback((values: z.infer<typeof formSchema>) => {
-    console.log(values);
-  }, []);
+  const onSubmit = useCallback(
+    (values: z.infer<typeof formSchema>) => {
+      setUsername(values.username);
+    },
+    [setUsername],
+  );
 
   return (
     <Form {...form}>
